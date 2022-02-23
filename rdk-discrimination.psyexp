@@ -100,32 +100,24 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="Dots">
-      <TextComponent name="cue">
-        <Param name="color" updates="constant" val="white" valType="color"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="contrast" updates="constant" val="1" valType="num"/>
+      <CodeComponent name="dots_get_direction">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((direction === &quot;right&quot;)) {&amp;#10;    dots_direction = 90;&amp;#10;} else {&amp;#10;    if ((direction === &quot;left&quot;)) {&amp;#10;        dots_direction = 270;&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if direction == &quot;right&quot;:&amp;#10;    dots_direction = 90&amp;#10;elif direction == &quot;left&quot;:&amp;#10;    dots_direction = 270" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flip" updates="constant" val="None" valType="str"/>
-        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
-        <Param name="name" updates="None" val="cue" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
-        <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="➔" valType="str"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
-      </TextComponent>
-      <PolygonComponent name="polygon">
+        <Param name="name" updates="None" val="dots_get_direction" valType="code"/>
+      </CodeComponent>
+      <PolygonComponent name="dots_background">
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
@@ -135,7 +127,7 @@
         <Param name="lineColor" updates="constant" val="black" valType="color"/>
         <Param name="lineWidth" updates="constant" val="1" valType="num"/>
         <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="polygon" valType="code"/>
+        <Param name="name" updates="None" val="dots_background" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
@@ -144,7 +136,7 @@
         <Param name="size" updates="constant" val="(0.75, 0.75)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="1" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -152,11 +144,11 @@
         <Param name="vertices" updates="constant" val="" valType="list"/>
       </PolygonComponent>
       <DotsComponent name="dots">
-        <Param name="coherence" updates="constant" val="0.05" valType="num"/>
+        <Param name="coherence" updates="constant" val="0.08" valType="num"/>
         <Param name="color" updates="constant" val="$[1.0,1.0,1.0]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
-        <Param name="dir" updates="constant" val="0.0" valType="num"/>
+        <Param name="dir" updates="set every repeat" val="dots_direction" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="dotLife" updates="None" val="3" valType="num"/>
         <Param name="dotSize" updates="constant" val="3" valType="num"/>
@@ -174,7 +166,7 @@
         <Param name="speed" updates="constant" val="0.0125" valType="num"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="1" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -191,7 +183,7 @@
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="1" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
         <Param name="store" updates="constant" val="last key" valType="str"/>
@@ -206,7 +198,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="# If the participant did not respond at all, set the response text to 'miss'.&amp;#10;# You can figure that out by checking whether the given response 'None'.&amp;#10;# 'None' in Python means a values is not defined, so when&amp;#10;# dots_main_keyboard_resp.keys is 'None' we know the participant did not respond.&amp;#10;if dots_main_keyboard_resp.keys is None:&amp;#10;    response_text = &quot;miss&quot;&amp;#10;&amp;#10;# If the response time (rt) was shorter than 100ms, set the response text to&amp;#10;# 'too fast'.&amp;#10;# You can get the response time from the Keyboard component that was used to&amp;#10;# capture the response (name_of_the_keyboard_component.rt).&amp;#10;elif dots_main_keyboard_resp.rt &lt;= 0.1:&amp;#10;    response_text = &quot;too fast&quot;&amp;#10;&amp;#10;else:&amp;#10;    response_text = &quot;other feedback&quot;&amp;#10;&amp;#10;&amp;#10;print(dots_main_keyboard_resp.rt)" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# If the participant did not respond at all, set the response text to 'miss'.&amp;#10;# You can figure that out by checking whether the given response 'None'.&amp;#10;# 'None' in Python means a values is not defined, so when&amp;#10;# dots_main_keyboard_resp.keys is 'None' we know the participant did not respond.&amp;#10;if dots_main_keyboard_resp.keys is None:&amp;#10;    response_text = &quot;Verpasst&quot;&amp;#10;&amp;#10;# If the response time (rt) was shorter than 100ms, set the response text to&amp;#10;# 'too fast' (like Mulder et al., 2012 did).&amp;#10;# You can get the response time from the Keyboard component that was used to&amp;#10;# capture the response (name_of_the_keyboard_component.rt).&amp;#10;elif dots_main_keyboard_resp.rt &lt;= 0.1:&amp;#10;    response_text = &quot;Zu schnell&quot;&amp;#10;&amp;#10;else:&amp;#10;    response_text = &quot;other feedback&quot;&amp;#10;    &amp;#10;print(dots_main_keyboard_resp.keys)" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -226,7 +218,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.07" valType="num"/>
         <Param name="name" updates="None" val="main_feedback_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -243,9 +235,157 @@
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
     </Routine>
+    <Routine name="Cue">
+      <CodeComponent name="code">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((cue === &quot;left&quot;)) {&amp;#10;    cue_text = &quot;\ud83e\udc78&quot;;&amp;#10;} else {&amp;#10;    if ((cue === &quot;right&quot;)) {&amp;#10;        cue_text = &quot;\ud83e\udc7a&quot;;&amp;#10;    } else {&amp;#10;        if ((cue === &quot;none&quot;)) {&amp;#10;            cue_text = &quot;&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if cue == &quot;left&quot;:&amp;#10;    cue_string = &quot;←&quot;&amp;#10;elif cue == &quot;right&quot;:&amp;#10;    cue_string = &quot;→&quot;&amp;#10;elif cue == &quot;none&quot;:&amp;#10;    cue_string = &quot;○&quot;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code" valType="code"/>
+      </CodeComponent>
+      <TextComponent name="cue_text">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.08" valType="num"/>
+        <Param name="name" updates="None" val="cue_text" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every repeat" val="$cue_string" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="Fixation_pre_cue">
+      <CodeComponent name="code_random_fix_dur_pre">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# Before the fixation cross (the one before the cue) is displayed, randomly&amp;#10;# choose a duration for it. Since we are using seconds as time unit, these&amp;#10;# numbers correspond to 100ms, 350ms, 800ms and 1200ms.&amp;#10;fixation_duration_pre_cue = randchoice([0.1, 0.35, 0.8, 1.2])" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_random_fix_dur_pre" valType="code"/>
+      </CodeComponent>
+      <TextComponent name="fixation_cross_pre">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.08" valType="num"/>
+        <Param name="name" updates="None" val="fixation_cross_pre" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$fixation_duration_pre_cue" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="+" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="Fixation_post_cue">
+      <CodeComponent name="code_random_fix_dur_post">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="fixation_duration_pre_cue = randchoice([0.1, 0.35, 0.8, 1.2]);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# Before the fixation cross (the one after the cue) is displayed, randomly&amp;#10;# choose a duration for it. Since we are using seconds as time unit, these&amp;#10;# numbers correspond to 3400ms, 4000ms, 4500ms and 5000ms.&amp;#10;fixation_duration_post_cue = randchoice([3.4, 4, 4.5, 5])" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_random_fix_dur_post" valType="code"/>
+      </CodeComponent>
+      <TextComponent name="text_2">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.08" valType="num"/>
+        <Param name="name" updates="None" val="text_2" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$fixation_duration_post_cue" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="+" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+    </Routine>
   </Routines>
   <Flow>
+    <Routine name="Instruction"/>
+    <LoopInitiator loopType="TrialHandler" name="blocks">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions.csv" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="2" valType="num"/>
+      <Param name="name" updates="None" val="blocks" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="Fixation_pre_cue"/>
+    <Routine name="Cue"/>
+    <Routine name="Fixation_post_cue"/>
     <Routine name="Dots"/>
     <Routine name="Feedback"/>
+    <LoopTerminator name="blocks"/>
   </Flow>
 </PsychoPy2experiment>
