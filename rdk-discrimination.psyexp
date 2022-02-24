@@ -144,7 +144,7 @@
         <Param name="vertices" updates="constant" val="" valType="list"/>
       </PolygonComponent>
       <DotsComponent name="dots_stimulus">
-        <Param name="coherence" updates="constant" val="0.1" valType="num"/>
+        <Param name="coherence" updates="constant" val="0.08" valType="num"/>
         <Param name="color" updates="constant" val="$[1.0,1.0,1.0]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -222,7 +222,7 @@
         <Param name="name" updates="None" val="feedback_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0.01)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -262,11 +262,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.08" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="0.17" valType="num"/>
         <Param name="name" updates="None" val="cue_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0.021)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -460,7 +460,7 @@
   </Routines>
   <Flow>
     <Routine name="Instruction"/>
-    <LoopInitiator loopType="TrialHandler" name="practice_block">
+    <LoopInitiator loopType="TrialHandler" name="practice_block_loop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'right')])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="conditions_practice.csv" valType="file"/>
@@ -468,7 +468,7 @@
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="num"/>
-      <Param name="name" updates="None" val="practice_block" valType="code"/>
+      <Param name="name" updates="None" val="practice_block_loop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="Fixation_pre_cue"/>
@@ -476,9 +476,9 @@
     <Routine name="Fixation_post_cue"/>
     <Routine name="Dots"/>
     <Routine name="Feedback"/>
-    <LoopTerminator name="practice_block"/>
+    <LoopTerminator name="practice_block_loop"/>
     <Routine name="Instruction_Main"/>
-    <LoopInitiator loopType="TrialHandler" name="blocks">
+    <LoopInitiator loopType="TrialHandler" name="main_blocks_loop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'left'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'left'), ('direction', 'right')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'right'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'left')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')]), OrderedDict([('cue', 'none'), ('direction', 'right')])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="conditions.csv" valType="file"/>
@@ -486,7 +486,7 @@
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="2" valType="num"/>
-      <Param name="name" updates="None" val="blocks" valType="code"/>
+      <Param name="name" updates="None" val="main_blocks_loop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="Fixation_pre_cue"/>
@@ -494,7 +494,7 @@
     <Routine name="Fixation_post_cue"/>
     <Routine name="Dots"/>
     <Routine name="Feedback"/>
-    <LoopTerminator name="blocks"/>
+    <LoopTerminator name="main_blocks_loop"/>
     <Routine name="Debriefing"/>
   </Flow>
 </PsychoPy2experiment>
