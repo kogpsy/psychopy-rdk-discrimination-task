@@ -20,7 +20,7 @@
     <Param name="Save log file" updates="None" val="True" valType="bool"/>
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
     <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
-    <Param name="Screen" updates="None" val="1" valType="num"/>
+    <Param name="Screen" updates="None" val="0" valType="num"/>
     <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
@@ -76,7 +76,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Welcome to the experiment.&amp;#10;&amp;#10;In the following you will solve a series of tasks. You will be presented with a circle full of dots. Some of these dots will be moving to either the left or to the right. Your task is to decide in which direction they move.&amp;#10;&amp;#10;Press the [ left arrow key ] if you think the dots are moving to the left, or the [ right arrow key] if you think they are moving the right.&amp;#10;&amp;#10;Before the dots will appear, you will see an arrow on the screen indicating the more probable direction of movement of the dots. So if the arrow points to the right, the dots are more likely to move to the right than to move to the left, and vice versa.&amp;#10;&amp;#10;Please always focus on the small cross on the screen, if nothing else is presented, and try to respond as fast as possible.&amp;#10;&amp;#10;Press [ space ] to start with some practice runs when you're ready." valType="str"/>
+        <Param name="text" updates="constant" val="Welcome to the experiment.&amp;#10;&amp;#10;In the following you will solve a series of tasks. You will be presented with a circle full of dots. Some of these dots will be moving to either the left or to the right. Your task is to decide in which direction they are moving.&amp;#10;&amp;#10;Press the [ F key ] if you think the dots are moving to the left, or the [ J key] if you think they are moving the right.&amp;#10;&amp;#10;Before the dots appear, you will see an arrow on the screen indicating the more probable direction of motion. If the arrow points to the right, the dots are more likely to move to the right than to the left, and vice versa.&amp;#10;&amp;#10;Please always focus on the small cross on the screen, if nothing else is presented, and try to respond as fast as possible.&amp;#10;&amp;#10;Press [ space ] to start with some practice runs when you're ready." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
@@ -121,7 +121,7 @@
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="1.5" valType="code"/>
         <Param name="fillColor" updates="constant" val="black" valType="color"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="lineColor" updates="constant" val="black" valType="color"/>
@@ -134,11 +134,11 @@
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="None" val="circle" valType="str"/>
         <Param name="size" updates="constant" val="(0.75, 0.75)" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startEstim" updates="None" val="0" valType="code"/>
+        <Param name="startType" updates="None" val="frame N" valType="str"/>
         <Param name="startVal" updates="None" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="90" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="vertices" updates="constant" val="" valType="list"/>
@@ -152,7 +152,7 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="dotLife" updates="None" val="3" valType="num"/>
         <Param name="dotSize" updates="constant" val="3" valType="num"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="1.5" valType="code"/>
         <Param name="fieldPos" updates="constant" val="(0.0, 0.0)" valType="list"/>
         <Param name="fieldShape" updates="constant" val="circle" valType="str"/>
         <Param name="fieldSize" updates="constant" val="0.75" valType="num"/>
@@ -164,28 +164,28 @@
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="signalDots" updates="None" val="same" valType="str"/>
         <Param name="speed" updates="constant" val="0.0125" valType="num"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startEstim" updates="None" val="0" valType="code"/>
+        <Param name="startType" updates="None" val="frame N" valType="str"/>
         <Param name="startVal" updates="None" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="90" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </DotsComponent>
       <KeyboardComponent name="dots_keyboard_response">
-        <Param name="allowedKeys" updates="constant" val="'left','right'" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="'f','j'" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="1.5" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
         <Param name="name" updates="None" val="dots_keyboard_response" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startEstim" updates="None" val="0" valType="code"/>
+        <Param name="startType" updates="None" val="frame N" valType="str"/>
         <Param name="startVal" updates="None" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="90" valType="code"/>
         <Param name="store" updates="constant" val="last key" valType="str"/>
         <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
@@ -198,7 +198,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="# If the participant did not respond at all, set the response text to 'miss'.&amp;#10;# You can figure that out by checking whether the given response 'None'.&amp;#10;# 'None' in Python means a values is not defined, so when&amp;#10;# dots_main_keyboard_resp.keys is 'None' we know the participant did not respond.&amp;#10;if dots_keyboard_response.keys is None:&amp;#10;    response_text = &quot;miss&quot;&amp;#10;&amp;#10;# If the response time (rt) was shorter than 100ms, set the response text to&amp;#10;# 'too fast' (like Mulder et al., 2012 did).&amp;#10;# You can get the response time from the Keyboard component that was used to&amp;#10;# capture the response (name_of_the_keyboard_component.rt).&amp;#10;elif dots_keyboard_response.rt &lt;= 0.1:&amp;#10;    response_text = &quot;too fast&quot;&amp;#10;&amp;#10;# If the response time was between 100ms and 1500ms (i.e. it was valid), give&amp;#10;# feedback. If the repsonse was also correct, set the response text to '+5 points',&amp;#10;# if it was wrong, set the response text to '+0 points'.&amp;#10;# The variable 'direction' is a loop variable storing the stimulus direction for&amp;#10;# the current trial.&amp;#10;else:&amp;#10;    if direction == dots_keyboard_response.keys:&amp;#10;        response_text = &quot;+5 points&quot;&amp;#10;    else:&amp;#10;        response_text = &quot;+0 points&quot;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# If the participant did not respond at all, set the response text to 'miss'.&amp;#10;# You can figure that out by checking whether the given response 'None'.&amp;#10;# 'None' in Python means a values is not defined, so when&amp;#10;# dots_main_keyboard_resp.keys is 'None' we know the participant did not respond.&amp;#10;if dots_keyboard_response.keys is None:&amp;#10;    response_text = &quot;miss&quot;&amp;#10;&amp;#10;# If the response time (rt) was shorter than 100ms, set the response text to&amp;#10;# 'too fast' (like Mulder et al., 2012 did).&amp;#10;# You can get the response time from the Keyboard component that was used to&amp;#10;# capture the response (name_of_the_keyboard_component.rt).&amp;#10;elif dots_keyboard_response.rt &lt;= 0.1:&amp;#10;    response_text = &quot;too fast&quot;&amp;#10;&amp;#10;# If the response time was between 100ms and 1500ms (i.e. it was valid), give&amp;#10;# feedback. If the repsonse was also correct, set the response text to '+5 points',&amp;#10;# if it was wrong, set the response text to '+0 points'.&amp;#10;# The variable 'direction' is a loop variable storing the stimulus direction for&amp;#10;# the current trial.&amp;#10;else:&amp;#10;    if (direction == &quot;left&quot; and dots_keyboard_response.keys == &quot;f&quot; or &amp;#10;        direction == &quot;right&quot; and dots_keyboard_response.keys == &quot;j&quot;&amp;#10;    ):&amp;#10;        response_text = &quot;+5 points&quot;&amp;#10;    else:&amp;#10;        response_text = &quot;+0 points&quot;&amp;#10;        " valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -258,7 +258,7 @@
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="1" valType="code"/>
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
@@ -268,11 +268,11 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0.021)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="startEstim" updates="None" val="0" valType="code"/>
+        <Param name="startType" updates="None" val="frame N" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="60" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="set every repeat" val="$cue_string" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -457,6 +457,21 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="ISI">
+      <StaticComponent name="static_isi">
+        <Param name="code" updates="None" val="" valType="code"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="1" valType="code"/>
+        <Param name="name" updates="None" val="static_isi" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="0" valType="code"/>
+        <Param name="startType" updates="None" val="frame N" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="60" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="False" valType="bool"/>
+      </StaticComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="Instruction"/>
@@ -471,6 +486,7 @@
       <Param name="name" updates="None" val="practice_block_loop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="ISI"/>
     <Routine name="Fixation_pre_cue"/>
     <Routine name="Cue"/>
     <Routine name="Fixation_post_cue"/>
@@ -489,6 +505,7 @@
       <Param name="name" updates="None" val="main_blocks_loop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="ISI"/>
     <Routine name="Fixation_pre_cue"/>
     <Routine name="Cue"/>
     <Routine name="Fixation_post_cue"/>
