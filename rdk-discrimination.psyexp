@@ -242,7 +242,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="if ((cue === &quot;left&quot;)) {&amp;#10;    cue_text = &quot;\ud83e\udc78&quot;;&amp;#10;} else {&amp;#10;    if ((cue === &quot;right&quot;)) {&amp;#10;        cue_text = &quot;\ud83e\udc7a&quot;;&amp;#10;    } else {&amp;#10;        if ((cue === &quot;none&quot;)) {&amp;#10;            cue_text = &quot;&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="# Here we set which cue is displayed (a cue is just a text symbol). We check the&amp;#10;# content of the loop variable 'cue', and decide if the cue text should be an&amp;#10;# arrow pointing the left, an arrow pointing to the right or just a circle.&amp;#10;if cue == &quot;left&quot;:&amp;#10;    cue_string = &quot;←&quot;&amp;#10;elif cue == &quot;right&quot;:&amp;#10;    cue_string = &quot;→&quot;&amp;#10;elif cue == &quot;none&quot;:&amp;#10;    cue_string = &quot;○&quot;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# Here we set which cue is displayed (a cue is just a text symbol). We check the&amp;#10;# content of the loop variable 'cue', and decide if the cue text should be an&amp;#10;# arrow pointing the left, an arrow pointing to the right or just a circle.&amp;#10;if cue == &quot;left&quot;:&amp;#10;    cue_path = &quot;img/arrow_left.png&quot;&amp;#10;elif cue == &quot;right&quot;:&amp;#10;    cue_path = &quot;img/arrow_right.png&quot;&amp;#10;elif cue == &quot;none&quot;:&amp;#10;    cue_path = &quot;img/neutral.png&quot;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -253,31 +253,32 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="cue_set_text" valType="code"/>
       </CodeComponent>
-      <TextComponent name="cue_text">
-        <Param name="color" updates="constant" val="white" valType="color"/>
+      <ImageComponent name="image">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="1" valType="code"/>
-        <Param name="flip" updates="constant" val="None" valType="str"/>
-        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.17" valType="num"/>
-        <Param name="name" updates="None" val="cue_text" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$cue_path" valType="file"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="" valType="str"/>
+        <Param name="name" updates="None" val="image" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0, 0.021)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="(0.2, 0.1)" valType="list"/>
         <Param name="startEstim" updates="None" val="0" valType="code"/>
         <Param name="startType" updates="None" val="frame N" valType="str"/>
         <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
         <Param name="stopVal" updates="constant" val="60" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every repeat" val="$cue_string" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="num"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
-      </TextComponent>
+      </ImageComponent>
     </Routine>
     <Routine name="Fixation_pre_cue">
       <CodeComponent name="fixation_pre_set_duration">
